@@ -1,4 +1,4 @@
-package io.enlightendev.sqs.console;
+package io.enlightendev.console;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
@@ -11,7 +11,7 @@ import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
 import com.amazonaws.services.sqs.model.SendMessageResult;
-import io.enlightendev.sqs.SQSUtil;
+import io.enlightendev.util.ConsoleUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -76,7 +76,7 @@ public class SQSFIFOJavaClientSample {
             // Uncomment the following to provide the ReceiveRequestDeduplicationId
             //receiveMessageRequest.setReceiveRequestAttemptId("1");
             List<Message> messages = sqs.receiveMessage(receiveMessageRequest).getMessages();
-            SQSUtil.printSQSMessages(messages);
+            ConsoleUtil.printSQSMessages(messages);
             System.out.println();
 
             // Delete the message
